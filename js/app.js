@@ -1,3 +1,5 @@
+baguetteBox.run('.gallery');
+
 const textSearch = document.getElementById('search-bar');
 
 textSearch.addEventListener('keyup', e => {
