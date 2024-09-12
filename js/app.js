@@ -1,4 +1,8 @@
+// Call baguetteBox plug-in for photo gallery lightbox
 baguetteBox.run('.gallery');
+
+// This code block allows user to search image titles and captions to 
+// filter the displayed photos
 
 const textSearch = document.getElementById('search-bar');
 
@@ -19,6 +23,9 @@ textSearch.addEventListener('keyup', e => {
         }
     });
 });
+
+// This code block randomizes the @keyframes fadeIn animation when all 
+// images are loaded
 
 const photoCards = document.querySelectorAll('a.photo');
 

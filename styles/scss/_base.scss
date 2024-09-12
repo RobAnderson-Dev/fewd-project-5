@@ -1,99 +1,101 @@
 
+// body is a single-column grid with automatically sized rows that
+// anchor the header and footer
 body {
+    min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 100%;
-    min-height: 100vh;
+    font-family: $font-family;
     background-color: $color-background;
     color: $color-primary;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 100;
     & a {
         color: $color-primary;
     }
 }
 
+// header contains navigation bar
 header {
+    font-size: $header-font-size;
+    font-weight: $header-font-weight;
     padding: 75px 0px;
 }
 
+// navigation bar is a single-row grid with 3 equal, automatically
+// sized columns
 .nav-bar {
     display: grid;
-    justify-content: center;
     grid-template-columns: repeat(3, minmax(100px, 1fr));
+    justify-content: center;
     & a {
         margin: auto;
         list-style-type: none;
-        font-size: 1.3rem;
-        // font-weight: bold;
         text-decoration: none;
-        @include enlarge;
+        outline: none;
+        @include enlarge(1.2);
     }
 }
 
+// search bar wrapper uses flexbox row for centering the search bar
 .search-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    // padding-top: 50px;
 }
 
+// search bar will grow from min to max size
 #search-bar {
     flex-grow: 1;
     min-width: 300px;
     max-width: 30%;
-    font-size: 16px;
-    font-weight: 3;
     padding: 10px;
+    font-size: $search-font-size;
     border: 1px solid $color-primary;
-    border-radius: 5px;
+    border-radius: $std-border-radius;
     background-color: $color-primary;
+    outline: none;
     &::placeholder {
         color: $color-search-placeholder;
     }
-    &:hover {
-        border: 1px solid $color-secondary;
+    &:hover,
+    &:focus {
+        @include enlarge(1.05);
     }
 }
 
+// gallery is a grid autofilled with columns sized by the thumbnail 
+// edge pixel count
 .gallery {
-    perspective: 100px;
     display: grid;
-    grid-auto-rows: 200px;
-    grid-template-columns: repeat(auto-fill, 200px);
-    grid-gap: 25px;
-
+    grid-template-columns: repeat(auto-fill, $thumbnail-size);
+    grid-gap: $grid-gap-size;
     justify-content: center;
     padding: 50px 50px;
 }
 
+// photos are framed when focused and enlarged when hovered 
 .photo {
     opacity: 0;
+    outline: none;
+    &:focus {
+        outline: 4px solid $color-primary;
+        border-radius: $std-border-radius;
+    }
     &>img {
         @include box-decoration;
-        @include enlarge;
+        @include enlarge(1.05);
     }
 }
 
+// footer uses flexbox column for centering the <p> elements
 footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 0px 0px 50px 0px;
+    padding-bottom: 50px;
     & p {
         margin: 0;
-        font-size: 0.9rem;
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0px);
+        font-size: $footer-font-size;
+        font-weight: $footer-font-weight;
     }
 }

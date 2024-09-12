@@ -308,37 +308,39 @@ template {
 }
 
 body {
+  min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
-  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
   background-color: #000000;
   color: #f0f0f5;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 100;
 }
 body a {
   color: #f0f0f5;
 }
 
 header {
+  font-size: 1.3rem;
+  font-weight: 300;
   padding: 75px 0px;
 }
 
 .nav-bar {
   display: grid;
-  justify-content: center;
   grid-template-columns: repeat(3, minmax(100px, 1fr));
+  justify-content: center;
 }
 .nav-bar a {
   margin: auto;
   list-style-type: none;
-  font-size: 1.3rem;
   text-decoration: none;
-  transition: 0.5s ease;
+  outline: none;
+  transition: 0.75s ease;
 }
-.nav-bar a:hover {
-  transform: scale(1.1);
+.nav-bar a:hover, .nav-bar a:focus {
+  transform: scale(1.2);
+  text-shadow: 2px 2px 5px #f0f0f5;
 }
 
 .search-wrapper {
@@ -351,24 +353,26 @@ header {
   flex-grow: 1;
   min-width: 300px;
   max-width: 30%;
-  font-size: 16px;
-  font-weight: 3;
   padding: 10px;
+  font-size: 1rem;
   border: 1px solid #f0f0f5;
   border-radius: 5px;
   background-color: #f0f0f5;
+  outline: none;
 }
 #search-bar::placeholder {
   color: #808080;
 }
-#search-bar:hover {
-  border: 1px solid yellow;
+#search-bar:hover, #search-bar:focus {
+  transition: 0.75s ease;
+}
+#search-bar:hover:hover, #search-bar:hover:focus, #search-bar:focus:hover, #search-bar:focus:focus {
+  transform: scale(1.05);
+  text-shadow: 2px 2px 5px #f0f0f5;
 }
 
 .gallery {
-  perspective: 100px;
   display: grid;
-  grid-auto-rows: 200px;
   grid-template-columns: repeat(auto-fill, 200px);
   grid-gap: 25px;
   justify-content: center;
@@ -377,26 +381,32 @@ header {
 
 .photo {
   opacity: 0;
+  outline: none;
+}
+.photo:focus {
+  outline: 4px solid #f0f0f5;
+  border-radius: 5px;
 }
 .photo > img {
   border-radius: 5px;
-  box-shadow: 2px 2px 6px #f0f0f5;
-  transition: 0.5s ease;
+  box-shadow: 0px 2px 7px #f0f0f5;
+  transition: 0.75s ease;
 }
-.photo > img:hover {
-  transform: scale(1.1);
+.photo > img:hover, .photo > img:focus {
+  transform: scale(1.05);
+  text-shadow: 2px 2px 5px #f0f0f5;
 }
 
 footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 0px 0px 50px 0px;
+  padding-bottom: 50px;
 }
 footer p {
   margin: 0;
   font-size: 0.9rem;
+  font-weight: 100;
 }
 
 @keyframes fadeIn {

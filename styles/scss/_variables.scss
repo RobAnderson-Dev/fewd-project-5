@@ -1,4 +1,21 @@
+// Font families
+$font-family: "Montserrat", sans-serif;
+
+// Color pallette
 $color-background: #000000;
 $color-primary: #f0f0f5;
-$color-secondary: yellow;
 $color-search-placeholder: #808080;
+
+// Font sizes and weights
+$header-font-size: 1.3rem;
+$header-font-weight: 300;
+$search-font-size: 1rem;
+$footer-font-size: 0.9rem;
+$footer-font-weight: 100;
+
+// Grid sizing parameters
+$thumbnail-size: 200px;
+$grid-gap-size: 25px;
+
+// Standard border radius styling
+$std-border-radius: 5px;

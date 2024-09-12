@@ -1,5 +1,10 @@
+// Import scss partials
+
 @import 'normalize';
 @import 'variables';
 @import 'mixins';
 @import 'base';
+@import 'animations';
+
+// Import baguetteBox.scss partial
 @import 'baguetteBox';
